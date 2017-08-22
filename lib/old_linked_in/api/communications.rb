@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     # Communications APIs

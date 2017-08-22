@@ -1,37 +1,37 @@
 require 'helper'
 
-describe LinkedIn do
+describe OldLinkedIn do
 
   before(:each) do
-    LinkedIn.token = nil
-    LinkedIn.secret = nil
-    LinkedIn.default_profile_fields = nil
+    OldLinkedIn.token = nil
+    OldLinkedIn.secret = nil
+    OldLinkedIn.default_profile_fields = nil
   end
 
   it "should be able to set the consumer token and consumer secret" do
-    LinkedIn.token  = 'consumer_token'
-    LinkedIn.secret = 'consumer_secret'
+    OldLinkedIn.token  = 'consumer_token'
+    OldLinkedIn.secret = 'consumer_secret'
 
-    LinkedIn.token.should  == 'consumer_token'
-    LinkedIn.secret.should == 'consumer_secret'
+    OldLinkedIn.token.should  == 'consumer_token'
+    OldLinkedIn.secret.should == 'consumer_secret'
   end
 
   it "should be able to set the default profile fields" do
-    LinkedIn.default_profile_fields = ['educations', 'positions']
+    OldLinkedIn.default_profile_fields = ['educations', 'positions']
 
-    LinkedIn.default_profile_fields.should == ['educations', 'positions']
+    OldLinkedIn.default_profile_fields.should == ['educations', 'positions']
   end
 
   it "should be able to set the consumer token and consumer secret via a configure block" do
-    LinkedIn.configure do |config|
+    OldLinkedIn.configure do |config|
       config.token  = 'consumer_token'
       config.secret = 'consumer_secret'
       config.default_profile_fields = ['educations', 'positions']
     end
 
-    LinkedIn.token.should  == 'consumer_token'
-    LinkedIn.secret.should == 'consumer_secret'
-    LinkedIn.default_profile_fields.should == ['educations', 'positions']
+    OldLinkedIn.token.should  == 'consumer_token'
+    OldLinkedIn.secret.should == 'consumer_secret'
+    OldLinkedIn.default_profile_fields.should == ['educations', 'positions']
   end
 
 end

@@ -1,7 +1,7 @@
 # Changelog
 
 * Document all methods
-* Re-organize modules under Api to match organization in LinkedIn's REST
+* Re-organize modules under Api to match organization in OldLinkedIn's REST
   API documentation
 
 ## 0.4.4 - Jan 11, 2014
@@ -66,7 +66,7 @@
 
 ##  0.1.5 - January 13, 2010
 
-* Added education and profile fields missing from updated LinkedIn docs
+* Added education and profile fields missing from updated OldLinkedIn docs
 
 ##  0.1.4 - January 13, 2010
 

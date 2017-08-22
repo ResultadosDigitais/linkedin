@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     # Jobs API
@@ -20,7 +20,7 @@ module LinkedIn
       #
       # @param [Hash] options identifies the job
       # @option options [String] id unique identifier for a job
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def job(options = {})
         path = jobs_path(options)
         simple_query(path, options)
@@ -31,7 +31,7 @@ module LinkedIn
       # @see http://developer.linkedin.com/documents/job-bookmarks-and-suggestions
       #
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def job_bookmarks(options = {})
         path = "#{person_path(options)}/job-bookmarks"
         simple_query(path, options)
@@ -42,7 +42,7 @@ module LinkedIn
       # @see http://developer.linkedin.com/documents/job-bookmarks-and-suggestions
       #
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def job_suggestions(options = {})
         path = "#{person_path(options)}/suggestions/job-suggestions"
         simple_query(path, options)

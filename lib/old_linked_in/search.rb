@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
 
   module Search
 
@@ -15,7 +15,7 @@ module LinkedIn
     #
     # @param [Hash] options search input fields
     # @param [String] type type of object to return ('people', 'job' or 'company')
-    # @return [LinkedIn::Mash]
+    # @return [OldLinkedIn::Mash]
     def search(options={}, type='people')
 
       path = "/#{type.to_s}-search"

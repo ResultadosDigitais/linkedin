@@ -1,6 +1,6 @@
 require 'helper'
 
-describe LinkedIn::Search do
+describe OldLinkedIn::Search do
 
   # if you remove the related cassettes you will need to inform valid
   # tokens and secrets to regenerate them
@@ -8,7 +8,7 @@ describe LinkedIn::Search do
   let(:client) do
     consumer_token  = ENV['LINKED_IN_CONSUMER_KEY'] || 'key'
     consumer_secret = ENV['LINKED_IN_CONSUMER_SECRET'] || 'secret'
-    client = LinkedIn::Client.new(consumer_token, consumer_secret)
+    client = OldLinkedIn::Client.new(consumer_token, consumer_secret)
 
     auth_token      = ENV['LINKED_IN_AUTH_KEY'] || 'key'
     auth_secret     = ENV['LINKED_IN_AUTH_SECRET'] || 'secret'
@@ -184,7 +184,7 @@ describe LinkedIn::Search do
 
       it "should raise an unauthorized error" do
         fields = ['id']
-        expect {client.profile(:email => 'email=aa@bb.com', :fields => fields)}.to raise_error(LinkedIn::Errors::UnauthorizedError)
+        expect {client.profile(:email => 'email=aa@bb.com', :fields => fields)}.to raise_error(OldLinkedIn::Errors::UnauthorizedError)
       end
     end
 

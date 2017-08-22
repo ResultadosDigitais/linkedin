@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     # Share and Social Stream APIs
@@ -29,7 +29,7 @@ module LinkedIn
       # @option options [String] :after
       # @option options [String] :before
       # @option options [String] :show-hidden-members
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def network_updates(options={})
         path = "#{person_path(options)}/network/updates"
         simple_query(path, options)
@@ -57,7 +57,7 @@ module LinkedIn
       # @param [String] update_key a update/update-key representing a
       #   particular network update
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def share_comments(update_key, options={})
         path = "#{person_path(options)}/network/updates/key=#{update_key}/update-comments"
         simple_query(path, options)
@@ -74,7 +74,7 @@ module LinkedIn
       # @param [String] update_key a update/update-key representing a
       #   particular network update
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def share_likes(update_key, options={})
         path = "#{person_path(options)}/network/updates/key=#{update_key}/likes"
         simple_query(path, options)

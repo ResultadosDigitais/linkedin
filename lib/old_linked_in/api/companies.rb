@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     # Companies API
@@ -26,7 +26,7 @@ module LinkedIn
       # @option options [String] :type
       # @option options [String] :count
       # @option options [String] :start
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def company(options = {})
         path = company_path(options)
         simple_query(path, options)
@@ -40,7 +40,7 @@ module LinkedIn
       # @option options [String] :event-type
       # @option options [String] :count
       # @option options [String] :start
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def company_updates(options={})
         path = "#{company_path(options)}/updates"
         simple_query(path, options)
@@ -53,7 +53,7 @@ module LinkedIn
       # @see https://developer.linkedin.com/docs/company-pages#statistics Get Company Statistics
       #
       # @macro company_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def company_statistics(options={})
         path = "#{company_path(options)}/company-statistics"
         simple_query(path, options)
@@ -66,7 +66,7 @@ module LinkedIn
       # @param [String] update_key a update/update-key representing a
       #   particular company update
       # @macro company_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def company_updates_comments(update_key, options={})
         path = "#{company_path(options)}/updates/key=#{update_key}/update-comments"
         simple_query(path, options)
@@ -79,7 +79,7 @@ module LinkedIn
       # @param [String] update_key a update/update-key representing a
       #   particular company update
       # @macro company_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def company_updates_likes(update_key, options={})
         path = "#{company_path(options)}/updates/key=#{update_key}/likes"
         simple_query(path, options)

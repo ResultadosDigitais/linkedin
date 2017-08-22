@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     # Groups API
@@ -29,7 +29,7 @@ module LinkedIn
       # @see http://developer.linkedin.com/documents/job-bookmarks-and-suggestions
       #
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def group_suggestions(options = {})
         path = "#{person_path(options)}/suggestions/groups"
         simple_query(path, options)
@@ -42,7 +42,7 @@ module LinkedIn
       # @see http://developer.linkedin.com/documents/groups-api
       #
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def group_memberships(options = {})
         path = "#{person_path(options)}/group-memberships"
         simple_query(path, options)
@@ -56,7 +56,7 @@ module LinkedIn
       #
       # @param [Hash] options identifies the group or groups
       # @optio options [String] :id identifier for the group
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def group_profile(options)
         path = group_path(options)
         simple_query(path, options)
@@ -72,7 +72,7 @@ module LinkedIn
       # @optio options [String] :id identifier for the group
       # @optio options [String] :count
       # @optio options [String] :start
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def group_posts(options)
         path = "#{group_path(options)}/posts"
         simple_query(path, options)

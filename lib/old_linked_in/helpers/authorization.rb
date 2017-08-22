@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Helpers
 
     module Authorization
@@ -17,13 +17,13 @@ module LinkedIn
 
       # Note: If using oauth with a web app, be sure to provide :oauth_callback.
       # Options:
-      #   :oauth_callback => String, url that LinkedIn should redirect to
+      #   :oauth_callback => String, url that OldLinkedIn should redirect to
       def request_token(options={}, *arguments, &block)
         @request_token ||= consumer.get_request_token(options, *arguments, &block)
       end
 
       # For web apps use params[:oauth_verifier], for desktop apps,
-      # use the verifier is the pin that LinkedIn gives users.
+      # use the verifier is the pin that OldLinkedIn gives users.
       def authorize_from_request(request_token, request_secret, verifier_or_pin)
         request_token = ::OAuth::RequestToken.new(consumer, request_token, request_secret)
         access_token  = request_token.get_access_token(:oauth_verifier => verifier_or_pin)
@@ -40,7 +40,7 @@ module LinkedIn
 
       private
 
-        # since LinkedIn uses api.linkedin.com for request and access token exchanges,
+        # since OldLinkedIn uses api.linkedin.com for request and access token exchanges,
         # but www.linkedin.com for authorize/authenticate, we have to take care
         # of the url creation ourselves.
         def parse_oauth_options

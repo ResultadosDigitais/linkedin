@@ -1,11 +1,11 @@
 require 'helper'
 
-describe "LinkedIn::Client" do
+describe "OldLinkedIn::Client" do
 
   let(:client) do
     key    = ENV['LINKED_IN_CONSUMER_KEY'] || '1234'
     secret = ENV['LINKED_IN_CONSUMER_SECRET'] || '1234'
-    LinkedIn::Client.new(key, secret)
+    OldLinkedIn::Client.new(key, secret)
   end
 
   describe "#consumer" do
@@ -23,7 +23,7 @@ describe "LinkedIn::Client" do
     describe "proxy oauth options" do
       let(:proxy) { "http://dummy.proxy" }
       let(:consumer) do
-        LinkedIn::Client.new('1234', '1234', {
+        OldLinkedIn::Client.new('1234', '1234', {
           :proxy => proxy,
         }).consumer
       end
@@ -35,7 +35,7 @@ describe "LinkedIn::Client" do
 
     describe "different api and auth hosts options" do
       let(:consumer) do
-        LinkedIn::Client.new('1234', '1234', {
+        OldLinkedIn::Client.new('1234', '1234', {
           :api_host => 'https://api.josh.com',
           :auth_host => 'https://www.josh.com'
         }).consumer
@@ -51,7 +51,7 @@ describe "LinkedIn::Client" do
 
     describe "different oauth paths" do
       let(:consumer) do
-        LinkedIn::Client.new('1234', '1234', {
+        OldLinkedIn::Client.new('1234', '1234', {
           :request_token_path => "/secure/oauth/requestToken",
           :access_token_path  => "/secure/oauth/accessToken",
           :authorize_path     => "/secure/oauth/authorize",
@@ -68,7 +68,7 @@ describe "LinkedIn::Client" do
 
     describe "specify oauth urls" do
       let(:consumer) do
-        LinkedIn::Client.new('1234', '1234', {
+        OldLinkedIn::Client.new('1234', '1234', {
           :request_token_url => "https://api.josh.com/secure/oauth/requestToken",
           :access_token_url  => "https://api.josh.com/secure/oauth/accessToken",
           :authorize_url     => "https://www.josh.com/secure/oauth/authorize",
@@ -85,7 +85,7 @@ describe "LinkedIn::Client" do
 
     describe "use the :site option to specify the host of all oauth urls" do
       let(:consumer) do
-        LinkedIn::Client.new('1234', '1234', {
+        OldLinkedIn::Client.new('1234', '1234', {
           :site => "https://api.josh.com"
         }).consumer
       end

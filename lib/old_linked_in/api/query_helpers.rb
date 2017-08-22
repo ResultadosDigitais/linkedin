@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     module QueryHelpers
@@ -12,7 +12,7 @@ module LinkedIn
       end
 
       def simple_query(path, options={})
-        fields = options.delete(:fields) || LinkedIn.default_profile_fields
+        fields = options.delete(:fields) || OldLinkedIn.default_profile_fields
 
         if options.delete(:public)
           path +=":public"

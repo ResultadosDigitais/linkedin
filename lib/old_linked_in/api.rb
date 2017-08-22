@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     # @!macro person_path_options
@@ -27,12 +27,12 @@ module LinkedIn
     #  @option share [String] :visibility
     #  @option share [String] :code
 
-    autoload :QueryHelpers,  "linked_in/api/query_helpers"
-    autoload :People,  "linked_in/api/people"
-    autoload :Groups,  "linked_in/api/groups"
-    autoload :Companies,  "linked_in/api/companies"
-    autoload :Jobs,  "linked_in/api/jobs"
-    autoload :ShareAndSocialStream,  "linked_in/api/share_and_social_stream"
-    autoload :Communications, "linked_in/api/communications"
+    autoload :QueryHelpers,  "old_linked_in/api/query_helpers"
+    autoload :People,  "old_linked_in/api/people"
+    autoload :Groups,  "old_linked_in/api/groups"
+    autoload :Companies,  "old_linked_in/api/companies"
+    autoload :Jobs,  "old_linked_in/api/jobs"
+    autoload :ShareAndSocialStream,  "old_linked_in/api/share_and_social_stream"
+    autoload :Communications, "old_linked_in/api/communications"
   end
 end

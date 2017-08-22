@@ -1,6 +1,6 @@
-module LinkedIn
+module OldLinkedIn
   module Errors
-    class LinkedInError < StandardError
+    class OldLinkedInError < StandardError
       attr_reader :data
       def initialize(data)
         @data = data
@@ -9,21 +9,21 @@ module LinkedIn
     end
 
     # Raised when a 401 response status code is received
-    class UnauthorizedError      < LinkedInError; end
+    class UnauthorizedError      < OldLinkedInError; end
 
     # Raised when a 400 response status code is received
-    class GeneralError           < LinkedInError; end
+    class GeneralError           < OldLinkedInError; end
 
     # Raised when a 403 response status code is received
-    class AccessDeniedError      < LinkedInError; end
+    class AccessDeniedError      < OldLinkedInError; end
 
     # Raised when a 404 response status code is received
-    class NotFoundError          < LinkedInError; end
+    class NotFoundError          < OldLinkedInError; end
 
     # Raised when a 500 response status code is received
-    class InformLinkedInError    < LinkedInError; end
+    class InformOldLinkedInError    < OldLinkedInError; end
 
     # Raised when a 502 or 503 response status code is received
-    class UnavailableError       < LinkedInError; end
+    class UnavailableError       < OldLinkedInError; end
   end
 end

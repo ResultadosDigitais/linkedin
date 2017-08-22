@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
 
   module VERSION #:nodoc:
     MAJOR = 1

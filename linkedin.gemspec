@@ -1,5 +1,5 @@
 # encoding: utf-8
-require File.expand_path('../lib/linked_in/version', __FILE__)
+require File.expand_path('../lib/old_linked_in/version', __FILE__)
 
 Gem::Specification.new do |gem|
   gem.add_dependency 'hashie', '~> 3.0'
@@ -14,7 +14,7 @@ Gem::Specification.new do |gem|
   gem.add_development_dependency 'vcr', '~> 2.5'
   gem.add_development_dependency 'webmock', '~> 1.11'
   gem.authors = ['Matthew Kirk', 'Wynn Netherland', 'Josh Kalderimis']
-  gem.description = 'Ruby wrapper for the LinkedIn API'
+  gem.description = 'Ruby wrapper for the OldLinkedIn API'
   gem.email = ['meteor.kirk@gmail.com', 'wynn.netherland@gmail.com', 'josh.kalderimis@gmail.com']
   gem.files = `git ls-files`.split("\n")
   gem.homepage = 'http://github.com/hexgnu/linkedin'
@@ -23,5 +23,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
   gem.summary = 'This gem interfaces with the Linkedin XML and JSON APis'
   gem.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
-  gem.version = LinkedIn::VERSION::STRING
+  gem.version = OldLinkedIn::VERSION::STRING
 end

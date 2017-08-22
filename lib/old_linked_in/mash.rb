@@ -1,7 +1,7 @@
 require 'hashie'
 require 'multi_json'
 
-module LinkedIn
+module OldLinkedIn
 
   # The generalized pseudo-object that is returned for all query
   # requests.
@@ -10,7 +10,7 @@ module LinkedIn
     # Convert a json string to a Mash
     #
     # @param [String] json_string
-    # @return [LinkedIn::Mash]
+    # @return [OldLinkedIn::Mash]
     def self.from_json(json_string)
       result_hash = ::MultiJson.decode(json_string)
       new(result_hash)
@@ -27,7 +27,7 @@ module LinkedIn
       end
     end
 
-    # Returns the id of the object from LinkedIn
+    # Returns the id of the object from OldLinkedIn
     #
     # @return [String]
     def id
@@ -64,7 +64,7 @@ module LinkedIn
         self.year? && self.month? && self.day?
       end
 
-      # overload the convert_key mash method so that the LinkedIn
+      # overload the convert_key mash method so that the OldLinkedIn
       # keys are made a little more ruby-ish
       def convert_key(key)
         case key.to_s

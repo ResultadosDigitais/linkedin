@@ -1,4 +1,4 @@
-module LinkedIn
+module OldLinkedIn
   module Api
 
     # People APIs
@@ -9,14 +9,14 @@ module LinkedIn
     # @see http://developer.linkedin.com/documents/accessing-out-network-profiles Accessing Out of Network Profiles
     module People
 
-      # Retrieve a member's LinkedIn profile.
+      # Retrieve a member's OldLinkedIn profile.
       #
       # Permissions: r_basicprofile, r_fullprofile
       #
       # @see https://developer.linkedin.com/docs/signin-with-linkedin#content-par_componenttabbedlist_resource_1_resourceparagraph_6
       # @macro person_path_options
       # @option options [string] :secure-urls if 'true' URLs in responses will be HTTPS
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def profile(options={})
         path = person_path(options)
         simple_query(path, options)
@@ -30,7 +30,7 @@ module LinkedIn
       # @see http://developer.linkedin.com/documents/connections-api
       #
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def connections(options={})
         path = "#{person_path(options)}/connections"
         simple_query(path, options)
@@ -46,7 +46,7 @@ module LinkedIn
       # @param [String] modified_since timestamp indicating since when
       #   you want to retrieve new connections
       # @macro person_path_options
-      # @return [LinkedIn::Mash]
+      # @return [OldLinkedIn::Mash]
       def new_connections(modified_since, options={})
         options.merge!('modified' => 'new', 'modified-since' => modified_since)
         path = "#{person_path(options)}/connections"

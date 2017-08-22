@@ -2,14 +2,14 @@
 
 ## OAuth 1.0a Authentication
 
-Here's an example of authenticating with the LinkedIn API
+Here's an example of authenticating with the OldLinkedIn API
 
 ```ruby
 require 'rubygems'
 require 'linkedin'
 
 # get your api keys at https://www.linkedin.com/secure/developer
-client = LinkedIn::Client.new('your_consumer_key', 'your_consumer_secret')
+client = OldLinkedIn::Client.new('your_consumer_key', 'your_consumer_secret')
 
 # If you want to use one of the scopes from linkedin you have to pass it in at this point
 # You can learn more about it here: http://developer.linkedin.com/documents/authentication
@@ -41,7 +41,7 @@ Here are some examples of accessing a user's profile
 ```ruby
 # AUTHENTICATE FIRST found in examples/authenticate.rb
 
-# client is a LinkedIn::Client
+# client is a OldLinkedIn::Client
 
 # get the profile for the authenticated user
 client.profile
@@ -69,7 +69,7 @@ Here's an example of sending a message to two recipients
 ```ruby
 # AUTHENTICATE FIRST found in examples/authenticate.md
 
-# client is a LinkedIn::Client
+# client is a OldLinkedIn::Client
 
 # send a message to a person in your network. you will need to authenticate the
 # user and ask for the "w_messages" permission.
@@ -85,7 +85,7 @@ the authenticated user
 ``` ruby
 # AUTHENTICATE FIRST found in examples/authenticate.rb
 
-# client is a LinkedIn::Client
+# client is a OldLinkedIn::Client
 
 # get network updates for the authenticated user
 client.network_updates
@@ -109,10 +109,10 @@ Here's an example of updating the current user's status
 ```ruby
 # AUTHENTICATE FIRST found in examples/authenticate.rb
 
-# client is a LinkedIn::Client
+# client is a OldLinkedIn::Client
 
 # update status for the authenticated user
-client.add_share(:comment => 'is playing with the LinkedIn Ruby gem')
+client.add_share(:comment => 'is playing with the OldLinkedIn Ruby gem')
 ```
 
 
@@ -144,7 +144,7 @@ helpers do
 
   private
   def linkedin_client
-    client = LinkedIn::Client.new(settings.api, settings.secret)
+    client = OldLinkedIn::Client.new(settings.api, settings.secret)
     client.authorize_from_access(session[:atoken], session[:asecret])
     client
   end
@@ -162,7 +162,7 @@ get "/" do
 end
 
 get "/auth" do
-  client = LinkedIn::Client.new(settings.api, settings.secret)
+  client = OldLinkedIn::Client.new(settings.api, settings.secret)
   request_token = client.request_token(:oauth_callback => "http://#{request.host}:#{request.port}/auth/callback")
   session[:rtoken] = request_token.token
   session[:rsecret] = request_token.secret
@@ -176,7 +176,7 @@ get "/auth/logout" do
 end
 
 get "/auth/callback" do
-  client = LinkedIn::Client.new(settings.api, settings.secret)
+  client = OldLinkedIn::Client.new(settings.api, settings.secret)
   if session[:atoken].nil?
     pin = params[:oauth_verifier]
     atoken, asecret = client.authorize_from_request(session[:rtoken], session[:rsecret], pin)
@@ -198,5 +198,5 @@ __END__
   -connections.all.each do |c|
     %div= "#{c.first_name} #{c.last_name} - #{c.headline}"
 -else
-  %a{:href => "/auth"} Login using LinkedIn
+  %a{:href => "/auth"} Login using OldLinkedIn
 ```

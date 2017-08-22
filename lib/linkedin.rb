@@ -1,6 +1,6 @@
 require 'oauth'
 
-module LinkedIn
+module OldLinkedIn
 
   class << self
     attr_accessor :token, :secret, :default_profile_fields
@@ -8,7 +8,7 @@ module LinkedIn
     # config/initializers/linkedin.rb (for instance)
     #
     # ```ruby
-    # LinkedIn.configure do |config|
+    # OldLinkedIn.configure do |config|
     #   config.token = 'consumer_token'
     #   config.secret = 'consumer_secret'
     #   config.default_profile_fields = ['educations', 'positions']
@@ -17,7 +17,7 @@ module LinkedIn
     # elsewhere
     #
     # ```ruby
-    # client = LinkedIn::Client.new
+    # client = OldLinkedIn::Client.new
     # ```
     def configure
       yield self
@@ -25,11 +25,11 @@ module LinkedIn
     end
   end
 
-  autoload :Api,     "linked_in/api"
-  autoload :Client,  "linked_in/client"
-  autoload :Mash,    "linked_in/mash"
-  autoload :Errors,  "linked_in/errors"
-  autoload :Helpers, "linked_in/helpers"
-  autoload :Search,  "linked_in/search"
-  autoload :Version, "linked_in/version"
+  autoload :Api,     "old_linked_in/api"
+  autoload :Client,  "old_linked_in/client"
+  autoload :Mash,    "old_linked_in/mash"
+  autoload :Errors,  "old_linked_in/errors"
+  autoload :Helpers, "old_linked_in/helpers"
+  autoload :Search,  "old_linked_in/search"
+  autoload :Version, "old_linked_in/version"
 end

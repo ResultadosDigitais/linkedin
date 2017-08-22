@@ -1,11 +1,11 @@
 require 'helper'
 
-describe LinkedIn::Mash do
+describe OldLinkedIn::Mash do
 
   describe ".from_json" do
     it "should convert a json string to a Mash" do
       json_string = "{\"name\":\"Josh Kalderimis\"}"
-      mash = LinkedIn::Mash.from_json(json_string)
+      mash = OldLinkedIn::Mash.from_json(json_string)
 
       mash.should have_key('name')
       mash.name.should == 'Josh Kalderimis'
@@ -14,7 +14,7 @@ describe LinkedIn::Mash do
 
   describe "#convert_keys" do
     let(:mash) do
-      LinkedIn::Mash.new({
+      OldLinkedIn::Mash.new({
         'firstName' => 'Josh',
         'LastName' => 'Kalderimis',
         '_key' => 1234,
@@ -38,7 +38,7 @@ describe LinkedIn::Mash do
 
     context 'no collision' do
       let(:mash) {
-        LinkedIn::Mash.new({
+        OldLinkedIn::Mash.new({
           '_key' => 1234
         })
 
@@ -64,21 +64,21 @@ describe LinkedIn::Mash do
 
   describe '#timestamp' do
     it "should return a valid Time if a key of timestamp exists and the value is an int" do
-      time_mash = LinkedIn::Mash.new({ 'timestamp' => 1297083249 })
+      time_mash = OldLinkedIn::Mash.new({ 'timestamp' => 1297083249 })
 
       time_mash.timestamp.should be_a_kind_of(Time)
       time_mash.timestamp.to_i.should  == 1297083249
     end
 
     it "should return a valid Time if a key of timestamp exists and the value is an int which is greater than 9999999999" do
-      time_mash = LinkedIn::Mash.new({ 'timestamp' => 1297083249 * 1000 })
+      time_mash = OldLinkedIn::Mash.new({ 'timestamp' => 1297083249 * 1000 })
 
       time_mash.timestamp.should be_a_kind_of(Time)
       time_mash.timestamp.to_i.should  == 1297083249
     end
 
     it "should not try to convert to a Time object if the value isn't an Integer" do
-      time_mash = LinkedIn::Mash.new({ 'timestamp' => 'Foo' })
+      time_mash = OldLinkedIn::Mash.new({ 'timestamp' => 'Foo' })
 
       time_mash.timestamp.class.should be String
     end
@@ -86,7 +86,7 @@ describe LinkedIn::Mash do
 
   describe "#to_date" do
     let(:date_mash) do
-      LinkedIn::Mash.new({
+      OldLinkedIn::Mash.new({
         'year' => 2010,
         'month' => 06,
         'day' => 23
@@ -100,7 +100,7 @@ describe LinkedIn::Mash do
 
   describe "#all" do
     let(:all_mash) do
-      LinkedIn::Mash.new({
+      OldLinkedIn::Mash.new({
         :values => nil
       })
     end
